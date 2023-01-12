@@ -19,6 +19,8 @@ and into the "Input: " you enter the input IN DECIMAL AND SEPARATED BY SPACES.
 
 This interpreter uses wrap around
 
+ANY CONTRIBUTION, SMALL OR BIG IS ENCOURAGED.
+
 to-do:
 
 make it print out the amount of instructions executed
@@ -28,3 +30,5 @@ add proper error detection and messages
 add infinite loop detection
 
 add debug capabilities(running the code step by step etc)
+
+Let it have the option to accept ascii/hex/binary inputs and outputs.
