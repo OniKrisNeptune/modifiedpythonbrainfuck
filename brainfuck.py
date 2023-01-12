@@ -15,6 +15,7 @@ inptptr = 0
 loopctr = 0
 mem = []
 
+#detect unmatched square brackets
 while(codeptr < len(code)):
     if(code[codeptr] == "["):
         loopctr += 1
