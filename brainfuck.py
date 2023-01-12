@@ -13,6 +13,7 @@ memptr = 0
 codeptr = 0
 inptptr = 0
 loopctr = 0
+instrctr = 0
 mem = []
 
 #detect unmatched square brackets
@@ -88,6 +89,8 @@ while(codeptr < len(code)):
                 loopctr -= 1
             codeptr -= 1
 
+    instrctr += 1
     codeptr += 1
 
-input("Execution completed. Press Enter to quit")
+input("Execution completed with " + instrctr
+      + " instructions. Press Enter to quit")
