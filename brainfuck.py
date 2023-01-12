@@ -14,8 +14,20 @@ inptptr = 0
 loopctr = 0
 mem = []
 
+while(codeptr < len(code)):
+    if(code[codeptr] == "["):
+        loopctr += 1
+    elif(code[codeptr] == "]"):
+        loopctr -= 1
+    codeptr += 1
+    
+if(loopctr > 0):
+    print("error: unmatched '['")
+elif(loopctr < 0):
+    print("error: unmatched ']'")
+    
 i = memsize
-while i > 0:
+while(i > 0):
     mem.append(int(0))
     i -= 1
 
