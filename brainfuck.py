@@ -22,7 +22,8 @@ while(codeptr < len(code)):
     elif(code[codeptr] == "]"):
         loopctr -= 1
     codeptr += 1
-    
+codeptr = 0
+
 if(loopctr > 0):
     print("error: unmatched '['")
 elif(loopctr < 0):
