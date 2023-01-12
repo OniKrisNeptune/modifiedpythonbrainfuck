@@ -7,10 +7,10 @@ else:
     memsize = int(input("Memory size: "))
     cellsize = int(input("Cell size: "))
 code = list(input("Code: "))
-input = input("Input: ").split()
+inpt = input("Input: ").split()
 memptr = 0
 codeptr = 0
-inputptr = 0
+inptptr = 0
 loopctr = 0
 mem = []
 
@@ -45,11 +45,11 @@ while(codeptr < len(code)):
         print(mem[memptr])
         
     elif(code[codeptr] == ","):
-        if (inputptr > len(input)):
+        if (inptptr > len(inpt)):
             mem[memptr] = 0
         else:
-            mem[memptr] = int(input[inputptr])
-            inputptr += 1
+            mem[memptr] = int(inpt[inptptr])
+            inptptr += 1
             
     elif(code[codeptr] == "["):
         if(mem[memptr] == 0):
