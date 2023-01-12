@@ -1,3 +1,4 @@
+#create all variables
 if(input("Proceed with default settings? ") == ""):
     print("Using default settings")
     memsize = 30000
@@ -14,11 +15,13 @@ inptptr = 0
 loopctr = 0
 mem = []
 
-i = memsize
-while i > 0:
+#create the memory cells
+while(memsize > 0):
     mem.append(int(0))
-    i -= 1
+    memsize -= 1
+memsize = len(mem)
 
+#interpret the code
 while(codeptr < len(code)):
 
     if(code[codeptr] == "+"):
