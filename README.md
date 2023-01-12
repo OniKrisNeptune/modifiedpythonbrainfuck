@@ -1,27 +1,25 @@
 # modifiedpythonbrainfuck
-Usage: upon running the file, it will ask you for four things:
+Usage: upon running the file, it will ask you if you want to proceed with defaukt settings
+.
+clicking enter will use them(30000 memory size and 255 cell size.
 
-Memory size: 
+Entering anything other than enter will let you customize it.
 
-Cell size: 
+It will ask you to manually enter the memory and cell size.
 
-Code: 
+THE CELL SIZE IS THE MAXIMUM DECIMAL VALUE A CELL CAN HOLD.
 
-Input: 
+so 255 is equal to an 8 bit cell, but you can also enter 500, 195 or whatever your heart desires.
 
-Memory size is the length on the memory(the amount of cells)
+Finally, it will ask you for the code and input.
 
-Cell size is the maximum value a cell can store (in base 10)
+Into the "Code: " you enter well... the brainfuck code!
 
-Code is where you put the brainfuck code, all characters other than the brainfuck code are ignored
-
-input is where you write the input, in decimal and separated by spaces
+and into the "Input: " you enter the input IN DECIMAL AND SEPARATED BY SPACES.
 
 This interpreter uses wrap around
 
 to-do:
-
-add a "Default" option, with 30000 memory size and 255 cell size
 
 make it print out the amount of instructions executed
 
