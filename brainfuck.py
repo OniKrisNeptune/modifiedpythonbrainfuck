@@ -89,3 +89,5 @@ while(codeptr < len(code)):
             codeptr -= 1
 
     codeptr += 1
+
+input("Execution completed. Press Enter to quit")
