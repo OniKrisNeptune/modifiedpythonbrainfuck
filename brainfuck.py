@@ -15,6 +15,19 @@ inptptr = 0
 loopctr = 0
 mem = []
 
+#detect unmatched square brackets
+while(codeptr < len(code)):
+    if(code[codeptr] == "["):
+        loopctr += 1
+    elif(code[codeptr] == "]"):
+        loopctr -= 1
+    codeptr += 1
+    
+if(loopctr > 0):
+    print("error: unmatched '['")
+elif(loopctr < 0):
+    print("error: unmatched ']'")
+    
 #create the memory cells
 while(memsize > 0):
     mem.append(int(0))
