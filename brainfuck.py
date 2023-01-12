@@ -36,6 +36,7 @@ while(memsize > 0):
     memsize -= 1
 memsize = len(mem)
 
+print("Output:")
 #interpret the code
 while(codeptr < len(code)):
 
