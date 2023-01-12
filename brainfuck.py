@@ -1,0 +1,68 @@
+memsize = int(input("Memory size: "))
+cellsize = int(input("Cell size: "))
+code = list(input("Code: "))
+input = input("Input: ").split()
+memptr = 0
+codeptr = 0
+inputptr = 0
+loopctr = 0
+mem = []
+
+i = memsize
+while i > 0:
+    mem.append(int(0))
+    i -= 1
+
+while(codeptr < len(code)):
+
+    if(code[codeptr] == "+"):
+        mem[memptr] += 1
+        if(mem[memptr] > cellsize):
+            mem[memptr] = 0
+
+    elif(code[codeptr] == "-"):
+        mem[memptr] -= 1
+        if(mem[memptr] < 0):
+            mem[memptr] = cellsize
+          
+    elif(code[codeptr] == ">"):
+        memptr += 1
+        if(memptr > memsize - 1):
+            memptr = 0
+            
+    elif(code[codeptr] == "<"):
+        memptr -= 1
+        if(memptr < 0):
+            memptr = memsize - 1
+           
+    elif(code[codeptr] == "."):
+        print(mem[memptr])
+        
+    elif(code[codeptr] == ","):
+        if (inputptr > len(input)):
+            mem[memptr] = 0
+        else:
+            mem[memptr] = int(input[inputptr])
+            inputptr += 1
+            
+    elif(code[codeptr] == "["):
+        if(mem[memptr] == 0):
+            loopctr += 1
+            while(loopctr != 0):
+                codeptr += 1
+                if(code[codeptr] == "["):
+                    loopctr += 1
+                elif(code[codeptr] == "]"):
+                    loopctr -= 1
+              
+    elif(code[codeptr] == "]"):
+        loopctr -= 1
+        while(loopctr != 0):
+            codeptr -= 1
+            if(code[codeptr] == "["):
+                loopctr += 1
+            elif(code[codeptr] == "]"):
+                loopctr -= 1
+            codeptr -= 1
+
+    codeptr += 1
