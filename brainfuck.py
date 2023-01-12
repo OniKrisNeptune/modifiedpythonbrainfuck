@@ -1,7 +1,7 @@
 if(input("Proceed with default settings? ") == ""):
-    print("Using default settings"
-   memsize = 30000
-   cellsize = 255
+    print("Using default settings")
+    memsize = 30000
+    cellsize = 255
 else:
     print("Customize:")
     memsize = int(input("Memory size: "))
