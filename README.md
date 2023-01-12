@@ -1,5 +1,5 @@
 # modifiedpythonbrainfuck
-Usage: upon running the file, it will ask you if you want to proceed with defaukt settings
+Usage: upon running the file, it will ask you if you want to proceed with default settings
 .
 clicking enter will use them(30000 memory size and 255 cell size.
 
