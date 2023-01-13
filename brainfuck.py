@@ -89,9 +89,10 @@ while(codeptr < len(code)):
             elif(code[codeptr] == "]"):
                 loopctr -= 1
             codeptr -= 1
-
+    else:
+        instrctr -= 1
     instrctr += 1
     codeptr += 1
 
-input("Execution completed with " + instrctr
+input("Execution completed with " + str(instrctr)
       + " instructions. Press Enter to quit")
