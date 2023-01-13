@@ -87,7 +87,7 @@ while(codeptr < len(code)):
                 loopctr += 1
             elif(code[codeptr] == "]"):
                 loopctr -= 1
-            codeptr -= 1
+        codeptr -= 1
 
     codeptr += 1
 
