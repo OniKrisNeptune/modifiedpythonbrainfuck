@@ -3,10 +3,14 @@ if(input("Proceed with default settings? ") == ""):
     print("Using default settings")
     memsize = 30000
     cellsize = 255
+    inpttype = d
+    outputtype = d
 else:
     print("Customize:")
     memsize = int(input("Memory size: "))
     cellsize = int(input("Cell size: "))
+    inpttype = input("Input type(not functionining yet: ")
+    outputtype = input("Output type: ")
 code = list(input("Code: "))
 inpt = input("Input: ").split()
 memptr = 0
@@ -61,7 +65,15 @@ while(codeptr < len(code)):
             memptr = memsize - 1
            
     elif(code[codeptr] == "."):
-        print(mem[memptr])
+        if(outputtype == "d"):
+            print(mem[memptr])
+        elif(outputtype == "h"):
+            print(hex(mem[memptr]))
+        elif(outputtype == "b"):
+            print(bin(mem[memptr]))
+        elif(outputtype == "o"):
+            print(oct(mem[memptr]))
+        else: print("Invalid output format.")
         
     elif(code[codeptr] == ","):
         if (inptptr > len(inpt)):
