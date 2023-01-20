@@ -1,111 +1,130 @@
-#create all variables
-if(input("Proceed with default settings? ") == ""):
-    print("Using default settings")
-    memsize = 30000
-    cellsize = 255
-    inpttype = d
-    outputtype = d
-else:
-    print("Customize:")
-    memsize = int(input("Memory size: "))
-    cellsize = int(input("Cell size: "))
-    inpttype = input("Input type(not functionining yet: ")
-    outputtype = input("Output type: ")
-code = list(input("Code: "))
-inpt = input("Input: ").split()
-memptr = 0
-codeptr = 0
-inptptr = 0
-loopctr = 0
-instrctr = 0
-mem = []
+memsize = 30000
+cellsize = 255
+inpttype = "d"
+outputtype = "d"
+import sys
 
-#detect unmatched square brackets
-while(codeptr < len(code)):
-    if(code[codeptr] == "["):
-        loopctr += 1
-    elif(code[codeptr] == "]"):
-        loopctr -= 1
-    codeptr += 1
-codeptr = 0
-
-if(loopctr > 0):
-    print("error: unmatched '['")
-elif(loopctr < 0):
-    print("error: unmatched ']'")
+while(True):
+    userchoice = input("Action: ")
     
-#create the memory cells
-while(memsize > 0):
-    mem.append(int(0))
-    memsize -= 1
-memsize = len(mem)
-
-print("Output:")
-#interpret the code
-while(codeptr < len(code)):
-
-    if(code[codeptr] == "+"):
-        mem[memptr] += 1
-        if(mem[memptr] > cellsize):
-            mem[memptr] = 0
-
-    elif(code[codeptr] == "-"):
-        mem[memptr] -= 1
-        if(mem[memptr] < 0):
-            mem[memptr] = cellsize
-          
-    elif(code[codeptr] == ">"):
-        memptr += 1
-        if(memptr > memsize - 1):
-            memptr = 0
-            
-    elif(code[codeptr] == "<"):
-        memptr -= 1
-        if(memptr < 0):
-            memptr = memsize - 1
-           
-    elif(code[codeptr] == "."):
-        if(outputtype == "d"):
-            print(mem[memptr])
-        elif(outputtype == "h"):
-            print(hex(mem[memptr]))
-        elif(outputtype == "b"):
-            print(bin(mem[memptr]))
-        elif(outputtype == "o"):
-            print(oct(mem[memptr]))
-        else: print("Invalid output format.")
-        
-    elif(code[codeptr] == ","):
-        if (inptptr > len(inpt)):
-            mem[memptr] = 0
-        else:
-            mem[memptr] = int(inpt[inptptr])
-            inptptr += 1
-            
-    elif(code[codeptr] == "["):
-        if(mem[memptr] == 0):
-            loopctr += 1
-            while(loopctr != 0):
-                codeptr += 1
-                if(code[codeptr] == "["):
-                    loopctr += 1
-                elif(code[codeptr] == "]"):
-                    loopctr -= 1
+    if(userchoice == "h"):
+        print(" Help:")
+        print("  [a help message should be here]")
               
-    elif(code[codeptr] == "]"):
-        loopctr -= 1
-        while(loopctr != 0):
-            codeptr -= 1
+    elif(userchoice == "p"):
+        print(" Program:")
+        code = list(input("  Code: "))
+        inpt = input("  Input: ").split()
+              
+    elif(userchoice == "s"):
+        print(" Customize settings:")
+        memsize = int(input("  Memory size: "))
+        cellsize = int(input("  Cell size: "))
+        inpttype = input("  Input type(not functionining yet: ")
+        outputtype = input("  Output type: ")
+
+    elif(userchoice == "q"):
+        print(" exit:")
+        if(input("  Enter to confirm exit") == ""):
+            sys.exit()
+        else: print("  Exit aborted.")
+                    
+    elif(userchoice == "e"):
+        print(" Executing:")
+        
+        memptr = 0
+        codeptr = 0
+        inptptr = 0
+        loopctr = 0
+        instrctr = 0
+        mem = []
+    
+        #detect unmatched square brackets
+        while(codeptr < len(code)):
             if(code[codeptr] == "["):
                 loopctr += 1
             elif(code[codeptr] == "]"):
                 loopctr -= 1
-        
-        codeptr -= 1
+            codeptr += 1
+        codeptr = 0
 
-    else: instrctr -= 1
-    instrctr += 1
-    codeptr += 1
+        if(loopctr > 0):
+            print("  error: unmatched '['")
+        elif(loopctr < 0):
+            print("  error: unmatched ']'")
+    
+        #create the memory cells
+        while(memsize > 0):
+            mem.append(int(0))
+            memsize -= 1
+        memsize = len(mem)
 
-input("Execution completed with " + str(instrctr)
-      + " instructions. Press Enter to quit")
+        print("  Output:")
+        #interpret the code
+        while(codeptr < len(code)):
+            
+            if(code[codeptr] == "+"):
+                mem[memptr] += 1
+                if(mem[memptr] > cellsize):
+                    mem[memptr] = 0
+
+            elif(code[codeptr] == "-"):
+                mem[memptr] -= 1
+                if(mem[memptr] < 0):
+                    mem[memptr] = cellsize
+
+            elif(code[codeptr] == ">"):
+                memptr += 1
+                if(memptr > memsize - 1):
+                    memptr = 0
+                
+            elif(code[codeptr] == "<"):
+                memptr -= 1
+                if(memptr < 0):
+                    memptr = memsize - 1
+               
+            elif(code[codeptr] == "."):
+                if(outputtype == "d"):
+                    print(mem[memptr])
+                elif(outputtype == "h"):
+                    print(hex(mem[memptr]))
+                elif(outputtype == "b"):
+                    print(bin(mem[memptr]))
+                elif(outputtype == "o"):
+                    print(oct(mem[memptr]))
+                else: print("  Invalid output format.")
+            
+            elif(code[codeptr] == ","):
+                if (inptptr > len(inpt)):
+                    mem[memptr] = 0
+                else:
+                    mem[memptr] = int(inpt[inptptr])
+                    inptptr += 1
+                
+            elif(code[codeptr] == "["):
+                if(mem[memptr] == 0):
+                    loopctr += 1
+                    while(loopctr != 0):
+                        codeptr += 1
+                        if(code[codeptr] == "["):
+                            loopctr += 1
+                        elif(code[codeptr] == "]"):
+                            loopctr -= 1
+                  
+            elif(code[codeptr] == "]"):
+                loopctr -= 1
+                while(loopctr != 0):
+                    codeptr -= 1
+                    if(code[codeptr] == "["):
+                        loopctr += 1
+                    elif(code[codeptr] == "]"):
+                        loopctr -= 1
+                codeptr -= 1
+
+            else: instrctr -= 1
+            instrctr += 1
+            codeptr += 1
+
+        print("  Execution completed with " + str(instrctr)
+          + " instructions.")
+    else: print(" Invalid command!")
