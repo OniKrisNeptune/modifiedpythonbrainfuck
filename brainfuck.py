@@ -3,17 +3,27 @@ cellsize = 255
 inpttype = "d"
 outputtype = "d"
 import sys
-
+halp = """  p to enter the code
+  i to change the input
+  s to customize memory size and cell size
+   (30000 and 255 by default)
+  q to exit application
+  e to execute the code
+              """
 while(True):
     userchoice = input("Action: ")
     
     if(userchoice == "h"):
         print(" Help:")
-        print("  [a help message should be here]")
+        print(halp)
               
     elif(userchoice == "p"):
         print(" Program:")
         code = list(input("  Code: "))
+        inpt = input("  Input: ").split()
+        
+    elif(userchoice == "i"):
+        print(" Input:")
         inpt = input("  Input: ").split()
               
     elif(userchoice == "s"):
@@ -72,7 +82,7 @@ while(True):
                 mem[memptr] -= 1
                 if(mem[memptr] < 0):
                     mem[memptr] = cellsize
-
+                    
             elif(code[codeptr] == ">"):
                 memptr += 1
                 if(memptr > memsize - 1):
@@ -127,4 +137,5 @@ while(True):
 
         print("  Execution completed with " + str(instrctr)
           + " instructions.")
-    else: print(" Invalid command!")
+        
+    else: print(" Invalid command! Type 'h' to view the help menu.")
