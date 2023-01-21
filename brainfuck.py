@@ -1,9 +1,6 @@
 memsize = 30000
 cellsize = 255
-#else:
-#    print("Customize settings:")
-#    memsize = int(input("Memory size: "))
-#    cellsize = int(input("Cell size: "))
+
 import sys
 while(True):
     userchoice = input("Action: ")
