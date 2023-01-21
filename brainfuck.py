@@ -1,9 +1,10 @@
 memsize = 30000
 cellsize = 255
-inpttype = "d"
-outputtype = "d"
+#else:
+#    print("Customize settings:")
+#    memsize = int(input("Memory size: "))
+#    cellsize = int(input("Cell size: "))
 import sys
-
 while(True):
     userchoice = input("Action: ")
     
@@ -20,9 +21,7 @@ while(True):
         print(" Customize settings:")
         memsize = int(input("  Memory size: "))
         cellsize = int(input("  Cell size: "))
-        inpttype = input("  Input type(not functionining yet: ")
-        outputtype = input("  Output type: ")
-
+        
     elif(userchoice == "q"):
         print(" exit:")
         if(input("  Enter to confirm exit") == ""):
@@ -72,7 +71,7 @@ while(True):
                 mem[memptr] -= 1
                 if(mem[memptr] < 0):
                     mem[memptr] = cellsize
-
+          
             elif(code[codeptr] == ">"):
                 memptr += 1
                 if(memptr > memsize - 1):
@@ -84,15 +83,7 @@ while(True):
                     memptr = memsize - 1
                
             elif(code[codeptr] == "."):
-                if(outputtype == "d"):
-                    print(mem[memptr])
-                elif(outputtype == "h"):
-                    print(hex(mem[memptr]))
-                elif(outputtype == "b"):
-                    print(bin(mem[memptr]))
-                elif(outputtype == "o"):
-                    print(oct(mem[memptr]))
-                else: print("  Invalid output format.")
+                print(mem[memptr])
             
             elif(code[codeptr] == ","):
                 if (inptptr > len(inpt)):
