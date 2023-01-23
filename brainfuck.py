@@ -34,7 +34,14 @@ while(True):
         if(input("  Enter to confirm exit") == ""):
             sys.exit()
         else: print("  Exit aborted.")
-                    
+        
+    elif(userchoice == "d"):
+        print(" Dump:")
+        print("  input pointer:", inptptr)
+        print("  memory pointer:", memptr)
+        print("  instructions:", instrctr)
+        print("  memory:", mem)
+        
     elif(userchoice == "e"):
         print(" Executing:")
         
@@ -123,6 +130,10 @@ while(True):
             instrctr += 1
             codeptr += 1
 
-        print("  Execution completed with " + str(instrctr)
-          + " instructions.")
+        print("  Execution completed.")
     else: print(" Invalid command! Type 'h' to view the help menu.")
+
+    
+        
+        
+              
