@@ -130,7 +130,7 @@ while(True):
             instrctr += 1
             codeptr += 1
 
-        print("  Execution completed.")
+        print(" Execution completed with " + str(instrctr) + " instructions.")
     else: print(" Invalid command! Type 'h' to view the help menu.")
 
     
